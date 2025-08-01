@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sayang!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <audio id="bgMusic" loop>
+            <source src="music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <img id="capybara" src="capybara.png" alt="Capybara" onclick="startAnimation()">
+        
+        <div id="envelope" class="envelope">
+            <img src="envelope.png" alt="Envelope">
+            <div id="letter" class="letter hidden">
+                <p>Happy B'day bby, All the best wishes to u, may your day always be wonderful day, filled with joy<br> and yeah I love u bby haha</p>
+            </div>
+        </div>
+        <button id="nextBtn" class="hidden lanjut-button" onclick="location.href='rose.html'">Click for get e-bucket!! </button>
+    </div>
+
+    <script>
+        function startAnimation() {
+            const capy = document.getElementById('capybara');
+            const envelope = document.getElementById('envelope');
+            const letter = document.getElementById('letter');
+            const nextBtn = document.getElementById('nextBtn');
+            const bgMusic = document.getElementById('bgMusic');
+
+            // Coba putar musik saat gambar diklik
+            if (bgMusic) {
+                bgMusic.play().catch(e => console.log("Playback error:", e));
+            }
+            
+            // Tambahkan class 'walking' untuk memulai animasi berjalan
+            capy.classList.add('walking');
+
+            // Hapus atribut onclick agar animasi tidak terulang saat diklik lagi
+            capy.onclick = null;
+
+            // Animate capybara entering
+            setTimeout(() => {
+                capy.style.left = "120px";
+            }, 500);
+
+            // Stop walking animation and play sound & show letter when near envelope
+            setTimeout(() => {
+                capy.classList.remove('walking');
+                envelope.classList.add('open');
+
+                const popSound = new Audio('pop.mp3');
+                popSound.play();
+
+                setTimeout(() => {
+                    letter.classList.remove('hidden');
+                    nextBtn.classList.remove('hidden');
+                }, 500);
+            }, 4500);
+        }
+    </script>
+</body>
+</html>
