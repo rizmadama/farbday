@@ -8,19 +8,12 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100vw; /* Memastikan body memenuhi 100% lebar viewport */
-    overflow: hidden; /* Mencegah scrolling */
 }
 
 .container {
     position: relative;
     width: 100%;
     max-width: 400px; /* Batasi lebar untuk desktop */
-    height: 100vh; /* Kontainer juga memenuhi 100% tinggi viewport */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
 }
 
@@ -122,46 +115,37 @@ body {
 /* ---------------------------------------------------- */
 /* Media Queries untuk perangkat dengan lebar layar maksimal 768px (HP/Tablet) */
 /* ---------------------------------------------------- */
-@media (max-width: 768px) and (orientation: portrait) {
+@media (max-width: 768px) {
     .container {
-        max-width: 90%;
-        height: 100vh;
-        justify-content: space-around;
-        padding-top: 5vh;
-        padding-bottom: 5vh;
+        max-width: 90%; /* Kontainer akan memenuhi 90% lebar layar agar ada sedikit margin di pinggir */
     }
 
     /* Penyesuaian posisi Capybara agar terlihat lebih pas di layar kecil */
-    #capybara, #capybara-rose {
-        width: 15vw; /* Ukuran capybara relatif terhadap lebar layar */
-        bottom: 25vh; /* Posisikan lebih rendah */
+    #capybara {
+        width: 80px; /* Ukuran capybara lebih kecil */
+        bottom: 50px; /* Posisikan lebih rendah */
+    }
+    
+    /* Perbarui posisi akhir Capybara agar tidak terlalu ke tengah di HP */
+    #capybara.walk-done {
+        left: 20%; /* Posisikan di 20% dari kiri */
+        transform: translateX(-50%); /* Geser ke kiri 50% dari lebarnya sendiri */
     }
 
     /* Penyesuaian ukuran amplop */
-    .envelope {
-        margin-top: 0;
-    }
-
     .envelope img {
-        width: 40vw; /* Ukuran amplop relatif terhadap lebar layar */
+        width: 150px; /* Ukuran amplop lebih kecil */
+        margin-top: 50px;
     }
     
     /* Penyesuaian surat */
     .letter {
-        width: 50vw;
-        font-size: 2.5vw;
-        padding: 1.5vw;
-        top: 50%;
+        width: 150px;
+        font-size: 14px;
+        top: 60px; /* Sesuaikan posisi surat agar pas di dalam amplop yang lebih kecil */
     }
     
-    .lanjut-button {
-        margin-top: 5vh;
-        padding: 2vw 4vw;
-        font-size: 3vw;
-    }
-
     .rose-message {
-        margin-top: 10vh;
-        font-size: 4vw;
+        margin-top: 150px;
     }
 }
