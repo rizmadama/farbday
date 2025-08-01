@@ -1,3 +1,4 @@
+/* Gaya Umum (Berlaku untuk semua perangkat) */
 body {
     margin: 0;
     padding: 0;
@@ -6,7 +7,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Memastikan body memenuhi 100% tinggi viewport */
+    height: 100vh;
     width: 100vw; /* Memastikan body memenuhi 100% lebar viewport */
     overflow: hidden; /* Mencegah scrolling */
 }
@@ -21,24 +22,24 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 2vh 0; /* Padding vertikal menggunakan unit relatif */
 }
 
 #capybara, #capybara-rose {
-    width: 25vw; /* Ukuran gambar relatif terhadap lebar viewport */
-    max-width: 100px;
+    width: 100px;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 15vh; /* Posisi relatif terhadap tinggi viewport */
-    transition: all 4s ease-in-out;
+    left: -100px;
+    bottom: 80px;
+    transition: left 4s ease-in-out;
+}
+
+#capybara, #capybara-rose {
     cursor: pointer; /* Menandakan gambar bisa diklik */
 }
 
 @keyframes walk {
-    0% { transform: translateY(0) translateX(-50%); }
-    50% { transform: translateY(-1vh) translateX(-50%); } /* Menggunakan vh untuk pergerakan */
-    100% { transform: translateY(0) translateX(-50%); }
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
 }
 
 .walking {
@@ -48,12 +49,11 @@ body {
 .envelope {
     position: relative;
     display: inline-block;
-    margin-top: 10vh; /* Margin relatif terhadap tinggi viewport */
+    margin-top: 100px;
 }
 
 .envelope img {
-    width: 50vw;
-    max-width: 200px;
+    width: 200px;
     transition: transform 1s ease-in-out;
 }
 
@@ -70,17 +70,16 @@ body {
 .letter {
     background: #fff;
     border: 2px solid #a67c52;
-    padding: 2vh;
-    width: 80%;
-    max-width: 180px;
-    font-size: 2vw; /* Ukuran font relatif terhadap lebar viewport */
-    max-font-size: 16px;
+    padding: 10px;
+    width: 180px;
+    margin: 10px auto;
+    font-size: 16px;
     color: #5a3e2b;
     border-radius: 5px;
     position: absolute;
-    top: 50%;
+    top: 90px;
     left: 50%;
-    transform: translate(-50%, -50%); /* Penyesuaian posisi tengah */
+    transform: translateX(-50%);
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
@@ -90,64 +89,79 @@ body {
 
 /* Gaya untuk tombol Lanjut yang disempurnakan */
 .lanjut-button {
-    margin-top: 5vh;
-    padding: 1.5vh 3vw;
-    font-size: 2.5vw;
+    margin-top: 30px;
+    padding: 12px 25px; /* Sedikit lebih besar */
+    font-size: 18px; /* Ukuran font lebih besar */
     font-weight: bold;
     background-color: #a67c52;
     color: white;
     border: none;
-    border-radius: 20px;
+    border-radius: 25px; /* Sudut lebih membulat */
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+    transition: all 0.3s ease; /* Transisi halus untuk semua perubahan */
 }
 
 .lanjut-button:hover {
-    background-color: #8c6a47;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    background-color: #8c6a47; /* Warna lebih gelap saat disentuh kursor */
+    transform: translateY(-2px); /* Tombol sedikit terangkat */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Bayangan lebih tebal */
 }
 
 .lanjut-button:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateY(0); /* Kembali ke posisi semula saat ditekan */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Bayangan lebih tipis */
 }
 
 .rose-message {
-    font-size: 3vw;
+    font-size: 20px;
     color: #a33e3e;
-    margin-top: 10vh;
+    margin-top: 250px;
 }
 
+/* ---------------------------------------------------- */
 /* Media Queries untuk perangkat dengan lebar layar maksimal 768px (HP/Tablet) */
-@media (max-width: 768px) {
+/* ---------------------------------------------------- */
+@media (max-width: 768px) and (orientation: portrait) {
     .container {
         max-width: 90%;
+        height: 100vh;
+        justify-content: space-around;
+        padding-top: 5vh;
+        padding-bottom: 5vh;
     }
 
-    #capybara {
-        width: 80px;
-        bottom: 50px;
+    /* Penyesuaian posisi Capybara agar terlihat lebih pas di layar kecil */
+    #capybara, #capybara-rose {
+        width: 15vw; /* Ukuran capybara relatif terhadap lebar layar */
+        bottom: 25vh; /* Posisikan lebih rendah */
     }
-    
-    #capybara.walk-done {
-        left: 20%;
-        transform: translateX(-50%);
+
+    /* Penyesuaian ukuran amplop */
+    .envelope {
+        margin-top: 0;
     }
 
     .envelope img {
-        width: 150px;
-        margin-top: 50px;
+        width: 40vw; /* Ukuran amplop relatif terhadap lebar layar */
     }
     
+    /* Penyesuaian surat */
     .letter {
-        width: 150px;
-        font-size: 14px;
-        top: 60px;
+        width: 50vw;
+        font-size: 2.5vw;
+        padding: 1.5vw;
+        top: 50%;
     }
     
+    .lanjut-button {
+        margin-top: 5vh;
+        padding: 2vw 4vw;
+        font-size: 3vw;
+    }
+
     .rose-message {
-        margin-top: 150px;
+        margin-top: 10vh;
+        font-size: 4vw;
     }
 }
