@@ -7,22 +7,33 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100vh; /* Memastikan body memenuhi 100% tinggi viewport */
+    width: 100vw; /* Memastikan body memenuhi 100% lebar viewport */
+    overflow: hidden; /* Mencegah scrolling */
 }
 
 .container {
     position: relative;
     width: 100%;
     max-width: 400px; /* Batasi lebar untuk desktop */
+    height: 100vh; /* Kontainer juga memenuhi 100% tinggi viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    padding: 2vh 0; /* Padding vertikal menggunakan unit relatif */
 }
 
 #capybara, #capybara-rose {
+    width: 25vw; /* Ukuran gambar relatif terhadap lebar viewport */
     width: 100px;
     position: absolute;
-    left: -100px;
-    bottom: 80px;
-    transition: left 4s ease-in-out;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15vh; /* Posisi relatif terhadap tinggi viewport */
+    transition: all 4s ease-in-out;
+    cursor: pointer;
 }
 
 #capybara, #capybara-rose {
@@ -30,9 +41,9 @@ body {
 }
 
 @keyframes walk {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-    100% { transform: translateY(0); }
+    0% { transform: translateY(0) translateX(-50%); }
+    50% { transform: translateY(-1vh) translateX(-50%); } /* Menggunakan vh untuk pergerakan */
+    100% { transform: translateY(0) translateX(-50%); }
 }
 
 .walking {
@@ -42,11 +53,12 @@ body {
 .envelope {
     position: relative;
     display: inline-block;
-    margin-top: 100px;
+    margin-top: 10vh; /* Margin relatif terhadap tinggi viewport */
 }
 
 .envelope img {
-    width: 200px;
+    width: 50vw;
+    max-width: 200px;
     transition: transform 1s ease-in-out;
 }
 
@@ -63,16 +75,17 @@ body {
 .letter {
     background: #fff;
     border: 2px solid #a67c52;
-    padding: 10px;
-    width: 180px;
-    margin: 10px auto;
-    font-size: 16px;
+    padding: 2vh;
+    width: 80%;
+    max-width: 180px;
+    font-size: 2vw; /* Ukuran font relatif terhadap lebar viewport */
+    max-font-size: 16px;
     color: #5a3e2b;
     border-radius: 5px;
     position: absolute;
-    top: 90px;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%); /* Penyesuaian posisi tengah */
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
@@ -82,17 +95,17 @@ body {
 
 /* Gaya untuk tombol Lanjut yang disempurnakan */
 .lanjut-button {
-    margin-top: 30px;
-    padding: 12px 25px; /* Sedikit lebih besar */
-    font-size: 18px; /* Ukuran font lebih besar */
+    margin-top: 5vh;
+    padding: 1.5vh 3vw;
+    font-size: 2.5vw;
     font-weight: bold;
     background-color: #a67c52;
     color: white;
     border: none;
-    border-radius: 25px; /* Sudut lebih membulat */
+    border-radius: 20px;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Efek bayangan */
-    transition: all 0.3s ease; /* Transisi halus untuk semua perubahan */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
 .lanjut-button:hover {
@@ -107,9 +120,9 @@ body {
 }
 
 .rose-message {
-    font-size: 20px;
+    font-size: 3vw;
     color: #a33e3e;
-    margin-top: 250px;
+    margin-top: 10vh;;
 }
 
 /* ---------------------------------------------------- */
@@ -148,4 +161,5 @@ body {
     .rose-message {
         margin-top: 150px;
     }
+
 }
