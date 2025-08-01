@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a little Gift for u by me bby </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <audio id="bgMusic" loop>
+            <source src="music_rose.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <img id="capybara-rose" src="capybara_rose.png" alt="Capybara with rose" onclick="startAnimation()">
+        
+        <p id="rose-message" class="rose-message hidden">Rose bucket from me to my girl 🌹 <br> creat by your love " d " </p>
+    </div>
+    <script>
+        function startAnimation() {
+            const capyRose = document.getElementById('capybara-rose');
+            const roseMessage = document.getElementById('rose-message');
+            const bgMusic = document.getElementById('bgMusic');
+
+            // Putar musik saat gambar diklik
+            if (bgMusic) {
+                bgMusic.play().catch(e => console.log("Playback error:", e));
+            }
+            
+            // Hapus event onclick agar animasi tidak terulang
+            capyRose.onclick = null;
+
+            // Set capybara-rose to its initial position and start moving right
+            capyRose.style.left = "50%";
+            capyRose.style.transform = "translateX(-50%)";
+
+            // Add the jump animation class after a short delay
+            setTimeout(() => {
+                capyRose.classList.add('jump-and-give-animation');
+            }, 100);
+
+            // Display the message after the animation finishes
+            setTimeout(() => {
+                roseMessage.classList.remove('hidden');
+            }, 2500); // Sesuaikan durasi ini dengan durasi animasi 'jump-and-give'
+        }
+    </script>
+</body>
+</html>
