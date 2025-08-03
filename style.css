@@ -28,13 +28,21 @@ body {
     margin-bottom: 2vh;
 }
 
-#capybara, #capybara-rose {
+#capybara {
     width: 100px;
     position: absolute;
     left: -100px;
     bottom: 80px;
     transition: left 4s ease-in-out;
 }
+
+#capybara-rose {
+    width: 20vw;
+    max-width: 100px;
+    position: absolute;
+    left: -20vw;
+    bottom: 50vh;
+    z-index: 1;
 
 #capybara, #capybara-rose {
     cursor: pointer; /* Menandakan gambar bisa diklik */
@@ -160,3 +168,4 @@ body {
         margin-top: 150px;
     }
 }
+
