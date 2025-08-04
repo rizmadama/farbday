@@ -115,9 +115,11 @@ body {
 /* ---------------------------------------------------- */
 /* Media Queries untuk perangkat dengan lebar layar maksimal 768px (HP/Tablet) */
 /* ---------------------------------------------------- */
-@media (max-width: 390px) and (height :844px) {
+@media only screen and (-webkit-device-pixel-ratio: 1),
+       only screen and (-webkit-device-pixel-ratio: 2),
+       only screen and (-webkit-device-pixel-ratio: 3){
     .container {
-        max-width: 90%; /* Kontainer akan memenuhi 90% lebar layar agar ada sedikit margin di pinggir */
+        max-width: 100%; /* Kontainer akan memenuhi 90% lebar layar agar ada sedikit margin di pinggir */
     }
 
     /* Penyesuaian posisi Capybara agar terlihat lebih pas di layar kecil */
@@ -149,4 +151,5 @@ body {
         margin-top: 200px;
     }
 }
+
 
