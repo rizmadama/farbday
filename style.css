@@ -115,7 +115,7 @@ body {
 /* ---------------------------------------------------- */
 /* Media Queries untuk perangkat dengan lebar layar maksimal 768px (HP/Tablet) */
 /* ---------------------------------------------------- */
-@media (max-width: 768px) {
+@media (max-width: 390px) and (height :844px) {
     .container {
         max-width: 90%; /* Kontainer akan memenuhi 90% lebar layar agar ada sedikit margin di pinggir */
     }
