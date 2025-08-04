@@ -33,19 +33,10 @@ body {
     0% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
     100% { transform: translateY(0); }
-    100% { left: 50%; bottom: 12vh; transform: translateX(-50%) rotate(0deg); }
 }
 
 .walking {
     animation: walk 0.5s infinite;
-}
-
-#capybara-rose {
-    width: 100px;
-    position: absolute;
-    left: -100px;
-    bottom: 80px;
-    transition: left 4s ease-in-out;
 }
 
 .envelope {
@@ -158,7 +149,3 @@ body {
         margin-top: 150px;
     }
 }
-
-
-
-
