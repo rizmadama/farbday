@@ -33,6 +33,7 @@ body {
     0% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
     100% { transform: translateY(0); }
+    100% { left: 50%; bottom: 12vh; transform: translateX(-50%) rotate(0deg); }
 }
 
 .walking {
@@ -45,17 +46,6 @@ body {
     left: -100px;
     bottom: 80px;
     transition: left 4s ease-in-out;
-}
-
-@keyframes move-to-center {
-    0% { left: -20vw; bottom: 50vh; transform: rotate(0deg); }
-    30% { left: 30%; bottom: 50vh; transform: rotate(10deg); }
-    60% { left: 50%; bottom: 30vh; transform: rotate(-10deg); }
-    /* Titik berhenti baru untuk Capybara_rose */
-    100% { left: 50%; bottom: 12vh; transform: translateX(-50%) rotate(0deg); }
-}
-.move-to-center {
-    animation: move-to-center 2.5s ease-in-out forwards;
 }
 
 .envelope {
@@ -168,6 +158,7 @@ body {
         margin-top: 150px;
     }
 }
+
 
 
 
