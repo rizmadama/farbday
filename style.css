@@ -47,16 +47,6 @@ body {
     transition: left 4s ease-in-out;
 }
 
-@keyframes walk {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-    100% { transform: translateY(0); }
-}
-
-.walking {
-    animation: walk 0.5s infinite;
-}
-
 @keyframes move-to-center {
     0% { left: -20vw; bottom: 50vh; transform: rotate(0deg); }
     30% { left: 30%; bottom: 50vh; transform: rotate(10deg); }
@@ -178,4 +168,5 @@ body {
         margin-top: 150px;
     }
 }
+
 
