@@ -24,6 +24,8 @@
             const capyRose = document.getElementById('capybara-rose');
             const roseMessage = document.getElementById('rose-message');
             const bgMusic = document.getElementById('bgMusic');
+            const instuctiontext = document.getElementById('instruction-text');
+
 
             // Putar musik saat gambar diklik
             if (bgMusic) {
@@ -46,11 +48,17 @@
             setTimeout(() => {
                 roseMessage.classList.remove('hidden');
             }, 2500); // Sesuaikan durasi ini dengan durasi animasi 'jump-and-give'
+
+            // Text hidden display after the animation finishes
+            setTimeout(() => {
+                instuctiontext.classList.hidden;
+            }, 2500); // Sesuaikan durasi ini dengan durasi animasi 'jump-and-give'
         }
     </script>
 </body>
 
 </html>
+
 
 
 
